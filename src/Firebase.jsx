@@ -53,15 +53,7 @@ export async function signInWithEmail(email, password) {
     }
 }
 
-export async function logoutUser() {
-  try {
-    await signOut(auth);
-    console.log("User logged out successfully");
-  } catch (error) {
-    console.error("Error logging out:", error);
-    throw error;
-  }
-}
+
 export async function createUserWithEmail(email, password, displayName) {
     try 
     {
@@ -131,4 +123,13 @@ export const createUserDoc = async (userAuth) => {
         console.log("User document already exists in Firestore");
     }
     return userDocRef;
+}
+export async function logoutUser() {
+  try {
+    await signOut(auth);
+    console.log("User logged out successfully");
+  } catch (error) {
+    console.error("Error logging out:", error);
+    throw error;
+  }
 }
