@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { signInWithEmail } from "./Firebase";   // ✅ back to your actual export
+import { signInWithEmail } from "./Firebase";
 import { useNavigate } from "react-router-dom";
 import "./visual.css";
 
@@ -18,10 +18,11 @@ function Login() {
       const userCredential = await signInWithEmail(email, password);
       console.log("User logged in successfully:", userCredential.user);
 
-      // ✅ route fix — go to home instead of missing /dashboard
-      navigate("/");
+      // ✅ After login, go to your main page (Log component)
+      navigate("/log");
     } catch (error) {
       console.error("Error logging in:", error.message);
+      alert("Invalid email or password!");
     }
   };
 
